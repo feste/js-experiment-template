@@ -28,28 +28,30 @@ var experiment = {
     $(".err").hide();
 
     //*******General Slider Stuff**************
-    var nResponses = 0;
-    trialData["responses"] = [];
-    function changeCreator(i) {
-      return function(value) {
-        $('#slider' + i).css({"background":"#99D6EB"});
-        $('#slider' + i + ' .ui-slider-handle').css({
-          "background":"#667D94",
-          "border-color": "#001F29" });
-        if (trialData.responses[i] == null) {
-          nResponses++;
+    if (qNumber == 0 || qNumber == 1) {
+      var nResponses = 0;
+      trialData["responses"] = [];
+      function changeCreator(i) {
+        return function(value) {
+          $('#slider' + i).css({"background":"#99D6EB"});
+          $('#slider' + i + ' .ui-slider-handle').css({
+            "background":"#667D94",
+            "border-color": "#001F29" });
+          if (trialData.responses[i] == null) {
+            nResponses++;
+          }
+          var sliderVal = $("#slider"+i).slider("value");
+          trialData.responses[i] = sliderVal;
+          $("#slider" + i + "val").html(sliderVal);
+        } 
+      }
+      function slideCreator(i) {
+        return function() {
+          $('#slider' + i + ' .ui-slider-handle').css({
+             "background":"#E0F5FF",
+             "border-color": "#001F29"
+          });
         }
-        var sliderVal = $("#slider"+i).slider("value");
-        trialData.responses[i] = sliderVal;
-        $("#slider" + i + "val").html(sliderVal);
-      } 
-    }
-    function slideCreator(i) {
-      return function() {
-        $('#slider' + i + ' .ui-slider-handle').css({
-           "background":"#E0F5FF",
-           "border-color": "#001F29"
-        });
       }
     }
     //********************************************
