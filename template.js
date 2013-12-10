@@ -3,6 +3,13 @@ function uniform(a, b) { return ( (Math.random()*(b-a))+a ); }
 function showSlide(id) { $(".slide").hide(); $("#"+id).show(); }
 function shuffle(v) { newarray = v.slice(0);for(var j, x, i = newarray.length; i; j = parseInt(Math.random() * i), x = newarray[--i], newarray[i] = newarray[j], newarray[j] = x);return newarray;} // non-destructive.
 
+var nonceWords = shuffle([
+  "wug", "dax", "fep", "tig", "speff", "zib", "gub", "wost", "wock", "thog",
+  "snim", "ript", "quog", "polt", "poch", "murp", "mulb", "mork", "mopt", "monx",
+  "mone", "moge", "lide", "hoil", "hoff", "hisp", "hinx", "hife", "hett", "fraw",
+  "fing", "fick", "blim", "zop", "blick"
+]);
+
 var nQs = 3;
 
 $(document).ready(function() {
